@@ -31,7 +31,7 @@ const PostCard = () => {
     const [open, setOpen] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [likedPosts, setLikedPosts] = useState(new Set()); // Track liked posts
+    const [likedPosts, setLikedPosts] = useState(new Set()); 
     const [error, setError] = useState('');
 
 
@@ -193,8 +193,6 @@ useSocket((data) => {
         return post;
     });
     setPosts(updatedPosts);
-
-    // Update the selected post if it's open
     if (selectedPost && selectedPost._id === data.postId) {
         setSelectedPost(prevPost => ({
             ...prevPost,
