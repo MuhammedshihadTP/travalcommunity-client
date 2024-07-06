@@ -156,17 +156,20 @@ const PostCard = () => {
     };
 
     const handleSearch = (e) => {
+        e.preventDefault();
         setSearchTerm(e.target.value);
+        console.log(searchTerm,"hjhdhdjh")
     };
     
     const filteredPosts = posts.filter((post) => {
         const searchLower = searchTerm.toLowerCase();
+        
         return (
-            post?.country.toLowerCase().includes(searchLower) ||
-            post?.user?.username.toLowerCase().includes(searchLower) ||
-            post?.content?.toLowerCase().includes(searchLower)
+            post?.country?.toLowerCase().includes(searchLower) ||   post?.user?.name?.toLowerCase().includes(searchLower)
         );
     });
+
+    console.log(posts,"po")
 
     const socket = io(`${process.env.REACT_APP_SERVER_URL}`); 
 
